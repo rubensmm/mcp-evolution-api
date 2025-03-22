@@ -1,0 +1,14 @@
+# Smithery.ai configuration
+startCommand:
+  type: stdio
+  configSchema:
+    {}
+  commandFunction: |-
+    (config) => ({
+      "command": "bun",
+      "args": [
+        "run",
+        "dist/main.js"
+      ],
+      "env": {}
+    })
