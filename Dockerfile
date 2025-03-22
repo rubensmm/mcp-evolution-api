@@ -1,33 +1,32 @@
+# Build stage
 FROM oven/bun:1.0.29 as builder
 
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json bun.lockb ./
+COPY package.json bun.lockb ./
 
 # Install dependencies
 RUN bun install --frozen-lockfile
 
-# Copy the rest of the application
+# Copy source files
 COPY . .
 
-# Build the application
+# Build application
 RUN bun run build
 
-# Create production image
+# Production stage
 FROM oven/bun:1.0.29-slim
 
 WORKDIR /app
 
-# Copy only the necessary files from the builder stage
+# Copy only necessary files
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json ./
 
-# Set environment variables
-ENV NODE_ENV=production
+# Install only production deps (optional but best practice)
+RUN bun install --production --frozen-lockfile
 
-# Run the application with the correct command
+# No need to expose port - Smithery expects stdio communication, not HTTP
+
 CMD ["bun", "run", "dist/main.js"]
-
-# Document that the service listens on port 3000
-EXPOSE 3000 
