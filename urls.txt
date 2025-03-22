@@ -1,0 +1,118 @@
+| Status | Endpoint                                | Documentation URL                                                                              |
+|--------|----------------------------------------|-----------------------------------------------------------------------------------------------|
+| DONE   | **GET Get Information**                 | https://doc.evolution-api.com/v2/api-reference/get-information                                  |
+| DONE   | **POST Create Instance**                | https://doc.evolution-api.com/v2/api-reference/instance-controller/create-instance               |
+| DONE   | **GET Fetch Instances**                 | https://doc.evolution-api.com/v2/api-reference/instance-controller/fetch-instances               |
+| DONE   | **GET Instance Connect**                | https://doc.evolution-api.com/v2/api-reference/instance-controller/instance-connect              |
+| DONE   | **PUT Restart Instance**                | https://doc.evolution-api.com/v2/api-reference/instance-controller/restart-instance              |
+| DONE   | **GET Connection State**                | https://doc.evolution-api.com/v2/api-reference/instance-controller/connection-state              |
+| DONE   | **DEL Logout Instance**                 | https://doc.evolution-api.com/v2/api-reference/instance-controller/logout-instance               |
+| DONE   | **DEL Delete Instance**                 | https://doc.evolution-api.com/v2/api-reference/instance-controller/delete-instance               |
+| DONE   | **POST Set Presence**                   | https://doc.evolution-api.com/v2/api-reference/instance-controller/set-presence                  |
+| DONE   | **POST Set Webhook**                    | https://doc.evolution-api.com/v2/api-reference/webhook/set-webhook                               |
+| DONE   | **GET Find Webhook**                    | https://doc.evolution-api.com/v2/api-reference/webhook/find-webhook                              |
+| DONE   | **POST Set Settings**                   | https://doc.evolution-api.com/v2/api-reference/settings/set-settings                             |
+| DONE   | **GET Find Settings**                   | https://doc.evolution-api.com/v2/api-reference/settings/find-settings                            |
+| DONE   | **POST Send Plain Text**                | https://doc.evolution-api.com/v2/api-reference/send-message/send-plain-text                      |
+| DONE   | **POST Send Status**                    | https://doc.evolution-api.com/v2/api-reference/send-message/send-status                          |
+| DONE   | **POST Send Media**                     | https://doc.evolution-api.com/v2/api-reference/send-message/send-media                           |
+| DONE   | **POST Send WhatsApp Audio**            | https://doc.evolution-api.com/v2/api-reference/send-message/send-whatsapp-audio                  |
+| DONE   | **POST Send Sticker**                   | https://doc.evolution-api.com/v2/api-reference/send-message/send-sticker                         |
+| DONE   | **POST Send Location**                  | https://doc.evolution-api.com/v2/api-reference/send-message/send-location                        |
+| DONE   | **POST Send Contact**                   | https://doc.evolution-api.com/v2/api-reference/send-message/send-contact                         |
+| DONE   | **POST Send Reaction**                  | https://doc.evolution-api.com/v2/api-reference/send-message/send-reaction                        |
+| DONE   | **POST Send Poll**                      | https://doc.evolution-api.com/v2/api-reference/send-message/send-poll                            |
+| DONE   | **POST Send List**                      | https://doc.evolution-api.com/v2/api-reference/send-message/send-list                            |
+| DONE   | **POST Send Buttons**                   | https://doc.evolution-api.com/v2/api-reference/send-message/send-buttons                         |
+|        | **POST Check is WhatsApp**              | https://doc.evolution-api.com/v2/api-reference/chat-controller/check-is-whatsapp                 |
+|        | **POST Mark Message As Read**           | https://doc.evolution-api.com/v2/api-reference/chat-controller/mark-message-as-read              |
+|        | **POST Mark Message As Unread**         | https://doc.evolution-api.com/v2/api-reference/chat-controller/mark-message-as-unread            |
+|        | **POST Archive Chat**                   | https://doc.evolution-api.com/v2/api-reference/chat-controller/archive-chat                      |
+|        | **DEL Delete Message for Everyone**     | https://doc.evolution-api.com/v2/api-reference/chat-controller/delete-message-for-everyone       |
+|        | **POST Update Message**                 | https://doc.evolution-api.com/v2/api-reference/chat-controller/update-message                    |
+|        | **POST Send Presence (Chat Ctrl)**      | https://doc.evolution-api.com/v2/api-reference/chat-controller/send-presence                     |
+|        | **POST Update Block Status**            | https://doc.evolution-api.com/v2/api-reference/chat-controller/update-block-status               |
+|        | **POST Fetch Profile Picture URL**      | https://doc.evolution-api.com/v2/api-reference/chat-controller/fetch-profile-picture-url         |
+|        | **POST Get Base64**                     | https://doc.evolution-api.com/v2/api-reference/chat-controller/get-base64                        |
+| DONE   | **POST Find Contacts**                  | https://doc.evolution-api.com/v2/api-reference/chat-controller/find-contacts                     |
+|        | **POST Find Messages**                  | https://doc.evolution-api.com/v2/api-reference/chat-controller/find-messages                     |
+|        | **POST Find Status Message**            | https://doc.evolution-api.com/v2/api-reference/chat-controller/find-status-message               |
+| DONE   | **POST Find Chats**                     | https://doc.evolution-api.com/v2/api-reference/chat-controller/find-chats                        |
+|        | **POST Fetch Business Profile**         | https://doc.evolution-api.com/v2/api-reference/profile-settings/fetch-business-profile           |
+|        | **POST Fetch Profile**                  | https://doc.evolution-api.com/v2/api-reference/profile-settings/fetch-profile                    |
+|        | **POST Update Profile Name**            | https://doc.evolution-api.com/v2/api-reference/profile-settings/update-profile-name              |
+|        | **POST Update Profile Status**          | https://doc.evolution-api.com/v2/api-reference/profile-settings/update-profile-status            |
+|        | **POST Update Profile Picture**         | https://doc.evolution-api.com/v2/api-reference/profile-settings/update-profile-picture           |
+|        | **DEL Remove Profile Picture**          | https://doc.evolution-api.com/v2/api-reference/profile-settings/remove-profile-picture           |
+|        | **GET Fetch Privacy Settings**          | https://doc.evolution-api.com/v2/api-reference/profile-settings/fetch-privacy-settings           |
+|        | **POST Update Privacy Settings**        | https://doc.evolution-api.com/v2/api-reference/profile-settings/update-privacy-settings          |
+|        | **POST Create Group**                   | https://doc.evolution-api.com/v2/api-reference/group-controller/create-group                     |
+|        | **POST Update Group Picture**           | https://doc.evolution-api.com/v2/api-reference/group-controller/update-group-picture             |
+|        | **POST Update Group Subject**           | https://doc.evolution-api.com/v2/api-reference/group-controller/update-group-subject             |
+|        | **POST Update Group Description**       | https://doc.evolution-api.com/v2/api-reference/group-controller/update-group-description         |
+|        | **GET Fetch Invite Code**               | https://doc.evolution-api.com/v2/api-reference/group-controller/fetch-invite-code                |
+|        | **POST Revoke Invite Code**             | https://doc.evolution-api.com/v2/api-reference/group-controller/revoke-invite-code               |
+|        | **POST Send Group Invite**              | https://doc.evolution-api.com/v2/api-reference/group-controller/send-group-invite                |
+|        | **GET Find Group by Invite Code**       | https://doc.evolution-api.com/v2/api-reference/group-controller/find-group-by-invite-code          |
+| DONE   | **GET Find Group by JID**               | https://doc.evolution-api.com/v2/api-reference/group-controller/find-group-by-jid                |
+| DONE   | **GET Fetch All Groups**                | https://doc.evolution-api.com/v2/api-reference/group-controller/fetch-all-groups                 |
+| DONE   | **GET Find Group Members**              | https://doc.evolution-api.com/v2/api-reference/group-controller/find-group-members               |
+|        | **POST Update Group Members**           | https://doc.evolution-api.com/v2/api-reference/group-controller/update-group-members             |
+|        | **POST Update Group Setting**           | https://doc.evolution-api.com/v2/api-reference/group-controller/update-group-setting             |
+|        | **POST Toggle Ephemeral**               | https://doc.evolution-api.com/v2/api-reference/group-controller/toggle-ephemeral                 |
+|        | **DEL Leave Group**                     | https://doc.evolution-api.com/v2/api-reference/group-controller/leave-group                      |
+|        | **POST Create Typebot**                 | https://doc.evolution-api.com/v2/api-reference/typebot/create-typebot                            |
+|        | **POST Start Typebot**                  | https://doc.evolution-api.com/v2/api-reference/typebot/start-typebot                             |
+|        | **GET Find Typebot**                    | https://doc.evolution-api.com/v2/api-reference/typebot/find-typebot                              |
+|        | **GET Fetch Typebot**                   | https://doc.evolution-api.com/v2/api-reference/typebot/fetch-typebot                             |
+|        | **POST Update Typebot**                 | https://doc.evolution-api.com/v2/api-reference/typebot/update-typebot                            |
+|        | **DEL Delete Typebot**                  | https://doc.evolution-api.com/v2/api-reference/typebot/delete-typebot                            |
+|        | **POST Change Session Status**          | https://doc.evolution-api.com/v2/api-reference/typebot/change-session-status                     |
+|        | **GET Fetch Session Typebot**           | https://doc.evolution-api.com/v2/api-reference/typebot/fetch-session-typebot                     |
+|        | **POST Settings Typebot**               | https://doc.evolution-api.com/v2/api-reference/typebot/settings-typebot                          |
+|        | **GET Fetch Typebot Settings**          | https://doc.evolution-api.com/v2/api-reference/typebot/fetch-typebot-settings                    |
+|        | **POST Create OpenIA Bot**              | https://doc.evolution-api.com/v2/api-reference/openai/create-openia-bot                          |
+|        | **GET Find OpenIA Bot**                 | https://doc.evolution-api.com/v2/api-reference/openai/find-openia-bot                            |
+|        | **GET Find OpenIA Bots**                | https://doc.evolution-api.com/v2/api-reference/openai/find-openia-bots                           |
+|        | **PUT Update Bot**                      | https://doc.evolution-api.com/v2/api-reference/openai/update-bot                                 |
+|        | **DEL Delete OpenIA Bot**               | https://doc.evolution-api.com/v2/api-reference/openai/delete-openia-bot                          |
+|        | **GET Find OpenIA Creds**               | https://doc.evolution-api.com/v2/api-reference/openai/find-openia-creds                          |
+|        | **POST Creds config OpenAI**            | https://doc.evolution-api.com/v2/api-reference/openai/creds-config-openai                        |
+|        | **POST Settigns config OpenAI**         | https://doc.evolution-api.com/v2/api-reference/openai/settigns-config-openai                     |
+|        | **GET Find settings OpenAI**            | https://doc.evolution-api.com/v2/api-reference/openai/find-settings-openai                       |
+|        | **POST Change status OpenAI**           | https://doc.evolution-api.com/v2/api-reference/openai/change-status-openai                       |
+|        | **GET Find sessions OpenAI**            | https://doc.evolution-api.com/v2/api-reference/openai/find-sessions-openai                       |
+|        | **POST Create Evolution Bot**           | https://doc.evolution-api.com/v2/api-reference/evolution-bot/create-evolution-bot                |
+|        | **GET Find Evolution Bots**             | https://doc.evolution-api.com/v2/api-reference/evolution-bot/find-evolution-bots                 |
+|        | **GET Fetch Evolution Bot**             | https://doc.evolution-api.com/v2/api-reference/evolution-bot/fetch-evolution-bot                 |
+|        | **PUT Update Evolution Bot**            | https://doc.evolution-api.com/v2/api-reference/evolution-bot/update-evolution-bot                |
+|        | **DEL Delete Evolution Bot**            | https://doc.evolution-api.com/v2/api-reference/evolution-bot/delete-evolution-bot                |
+|        | **POST Set Settings Bot**               | https://doc.evolution-api.com/v2/api-reference/evolution-bot/set-settings-bot                    |
+|        | **GET Find Settings Bot**               | https://doc.evolution-api.com/v2/api-reference/evolution-bot/find-settings-bot                   |
+|        | **POST Change Evolution Bot status**    | https://doc.evolution-api.com/v2/api-reference/evolution-bot/change-evolution-bot-status         |
+|        | **GET Fetch Evolution Bot Session**     | https://doc.evolution-api.com/v2/api-reference/evolution-bot/fetch-evolution-bot-session         |
+|        | **POST Create Dify Bot**                | https://doc.evolution-api.com/v2/api-reference/dify/create-dify-bot                              |
+|        | **GET Find Dify Bots**                  | https://doc.evolution-api.com/v2/api-reference/dify/find-dify-bots                               |
+|        | **GET Find Dify Bot**                   | https://doc.evolution-api.com/v2/api-reference/dify/find-dify-bot                                |
+|        | **PUT Update Dify Bot**                 | https://doc.evolution-api.com/v2/api-reference/dify/update-dify-bot                              |
+|        | **POST Set Dify Settings**              | https://doc.evolution-api.com/v2/api-reference/dify/set-dify-settings                            |
+|        | **GET Find Dify Settings**              | https://doc.evolution-api.com/v2/api-reference/dify/find-dify-settings                           |
+|        | **POST Change Status Bot**              | https://doc.evolution-api.com/v2/api-reference/dify/change-status-bot                            |
+|        | **GET Find Status Bot**                 | https://doc.evolution-api.com/v2/api-reference/dify/find-status-bot                              |
+|        | **POST Create Flowise Bot**             | https://doc.evolution-api.com/v2/api-reference/flowise/create-flowise-bot                        |
+|        | **GET Find Flowise Bots**               | https://doc.evolution-api.com/v2/api-reference/flowise/find-flowise-bots                         |
+|        | **GET Find Flowise Bot**                | https://doc.evolution-api.com/v2/api-reference/flowise/find-flowise-bot                          |
+|        | **POST Update Flowise Bot**             | https://doc.evolution-api.com/v2/api-reference/flowise/update-flowise-bot                        |
+|        | **DEL Delete Flowise Bot**              | https://doc.evolution-api.com/v2/api-reference/flowise/delete-flowise-bot                        |
+|        | **POST Set Settings Flowise Bots**      | https://doc.evolution-api.com/v2/api-reference/flowise/set-settings-flowise-bots                 |
+|        | **GET Find Flowise settings**           | https://doc.evolution-api.com/v2/api-reference/flowise/find-flowise-settings                     |
+|        | **POST Change Status Session**          | https://doc.evolution-api.com/v2/api-reference/flowise/change-status-session                     |
+|        | **GET Find Sessions Flowise**           | https://doc.evolution-api.com/v2/api-reference/flowise/find-sessions-flowise                     |
+|        | **POST Set Chatwoot**                   | https://doc.evolution-api.com/v2/api-reference/chatwoot/set-chatwoot                             |
+|        | **GET Find Chatwoot**                   | https://doc.evolution-api.com/v2/api-reference/chatwoot/find-chatwoot                            |
+|        | **POST Set Websocket**                  | https://doc.evolution-api.com/v2/api-reference/websocket/set-websocket                           |
+|        | **GET Find Websocket**                  | https://doc.evolution-api.com/v2/api-reference/websocket/find-websocket                          |
+|        | **POST Set SQS**                        | https://doc.evolution-api.com/v2/api-reference/sqs/set-sqs                                       |
+|        | **GET Find SQS**                        | https://doc.evolution-api.com/v2/api-reference/sqs/find-sqs                                      |
+|        | **POST Set RabbitMQ**                   | https://doc.evolution-api.com/v2/api-reference/rabbitmq/set-rabbitmq                             |
+|        | **GET Find RabbitMQ**                   | https://doc.evolution-api.com/v2/api-reference/rabbitmq/find-rabbitmq                            |

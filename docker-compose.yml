@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mcp-evo-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mcp-evo-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - EVOLUTION_API_URL=${EVOLUTION_API_URL}
+      - EVOLUTION_API_KEY=${EVOLUTION_API_KEY}
+    volumes:
+      - mcp-data:/app/data
+    networks:
+      - mcp-network
+
+volumes:
+  mcp-data:
+    driver: local
+
+networks:
+  mcp-network:
+    driver: bridge 
