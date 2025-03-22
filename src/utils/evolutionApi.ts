@@ -758,9 +758,15 @@ export interface WebhookConfig {
   url: string;
   webhookByEvents?: boolean;
   webhookBase64?: boolean;
+  /**
+   * List of events to subscribe to for webhook notifications
+   */
   events: WebhookEvent[];
 }
 
+/**
+ * Types of events that can trigger webhook notifications
+ */
 export type WebhookEvent =
   | 'APPLICATION_STARTUP'
   | 'QRCODE_UPDATED'
@@ -837,15 +843,42 @@ export interface SendPlainTextParams {
   delay?: number;
   linkPreview?: boolean;
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
@@ -859,6 +892,9 @@ export interface SendStatusParams {
     backgroundColor?: string;
     font?: number;
     allContacts: boolean;
+    /**
+     * List of specific WhatsApp IDs to send the status to
+     */
     statusJidList?: string[];
   };
 }
@@ -872,15 +908,42 @@ export interface SendMediaParams {
   caption?: string;
   delay?: number;
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
@@ -998,18 +1061,45 @@ export interface SendWhatsAppAudioParams {
   audio: string;
   delay?: number;
   encoding?: boolean;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
@@ -1041,18 +1131,45 @@ export interface SendStickerParams {
   number: string;
   sticker: string;
   delay?: number;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
@@ -1088,18 +1205,45 @@ export interface SendLocationParams {
   latitude: number;
   longitude: number;
   delay?: number;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
@@ -1126,20 +1270,50 @@ export interface SendPollParams {
   number: string;
   name: string;
   selectableCount: number;
+  /**
+   * Array of poll option values to display to users
+   */
   values: string[];
   delay?: number;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
@@ -1171,27 +1345,72 @@ export interface SendListParams {
   description: string;
   buttonText: string;
   footerText?: string;
+  /**
+   * Sections to display in the list message
+   */
   sections: {
+    /**
+     * Title of the section
+     */
     title: string;
+    /**
+     * Rows within the section
+     */
     rows: {
+      /**
+       * Title of the row item
+       */
       title: string;
+      /**
+       * Description of the row item
+       */
       description?: string;
+      /**
+       * Unique identifier for this row
+       */
       rowId: string;
     }[];
   }[];
   delay?: number;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
@@ -1227,23 +1446,59 @@ export interface SendButtonsParams {
   title: string;
   description: string;
   footer?: string;
+  /**
+   * Array of buttons to display in the message
+   */
   buttons: {
+    /**
+     * Unique identifier for the button
+     */
     buttonId: string;
+    /**
+     * Display text for the button
+     */
     buttonText: string;
   }[];
   delay?: number;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
@@ -1282,20 +1537,50 @@ export interface ContactInfo {
 
 export interface SendContactParams {
   number: string;
+  /**
+   * Array of contact information to send
+   */
   contact: ContactInfo[];
   delay?: number;
+  /**
+   * Message to quote/reply to
+   */
   quoted?: {
+    /**
+     * Key information for the message being quoted
+     */
     key: {
+      /**
+       * JID (WhatsApp ID) of the recipient
+       */
       remoteJid: string;
+      /**
+       * Whether the quoted message was sent by the current user
+       */
       fromMe: boolean;
+      /**
+       * Unique identifier of the quoted message
+       */
       id: string;
+      /**
+       * JID of the participant (for group chats)
+       */
       participant?: string;
     };
+    /**
+     * Content of the quoted message
+     */
     message: {
+      /**
+       * Text content of the message
+       */
       conversation: string;
     };
   };
   mentionsEveryOne?: boolean;
+  /**
+   * Array of phone numbers (with country code) to mention in the message
+   */
   mentioned?: string[];
 }
 
