@@ -10,11 +10,24 @@ export class EvolutionApi {
 
   constructor() {
     // Get API credentials from environment variables
-    this.serverUrl = process.env.EVOLUTION_API_URL || 'https://your-url.xyz';
+    this.serverUrl = process.env.EVOLUTION_API_URL || '';
     // Remove trailing slash if present
     this.serverUrl = this.serverUrl.endsWith('/') ? this.serverUrl.slice(0, -1) : this.serverUrl;
-    this.apiKey = process.env.EVOLUTION_API_KEY || 'your-api-key';
+    this.apiKey = process.env.EVOLUTION_API_KEY || '';
 
+    // Create axios instance with base settings
+    this.axiosInstance = axios.create({
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  /**
+   * Validates required credentials before making API calls
+   * This is called by each method rather than at initialization time
+   */
+  private validateCredentials(): void {
     if (!this.serverUrl) {
       throw new Error('EVOLUTION_API_URL environment variable is not set');
     }
@@ -22,14 +35,10 @@ export class EvolutionApi {
     if (!this.apiKey) {
       throw new Error('EVOLUTION_API_KEY environment variable is not set');
     }
-
-    this.axiosInstance = axios.create({
-      baseURL: this.serverUrl,
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': this.apiKey,
-      },
-    });
+    
+    // Set or update baseURL and API key in axios instance
+    this.axiosInstance.defaults.baseURL = this.serverUrl;
+    this.axiosInstance.defaults.headers.apikey = this.apiKey;
   }
 
   /**
@@ -37,6 +46,7 @@ export class EvolutionApi {
    */
   async getInformation(): Promise<ApiInformation> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.get('/');
       
       return response.data;
@@ -54,6 +64,7 @@ export class EvolutionApi {
    */
   async setPresence(instanceName: string, presence: PresenceStatus): Promise<void> {
     try {
+      this.validateCredentials();
       await this.axiosInstance.post(`/instance/setPresence/${instanceName}`, { presence });
       
       // This endpoint doesn't return any meaningful data
@@ -72,6 +83,7 @@ export class EvolutionApi {
    */
   async deleteInstance(instanceName: string): Promise<DeleteResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.delete(`/instance/delete/${instanceName}`);
       
       return response.data;
@@ -89,6 +101,7 @@ export class EvolutionApi {
    */
   async logoutInstance(instanceName: string): Promise<LogoutResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.delete(`/instance/logout/${instanceName}`);
       
       return response.data;
@@ -106,6 +119,7 @@ export class EvolutionApi {
    */
   async connectInstance(instanceName: string, phoneNumber?: string): Promise<ConnectionResponse> {
     try {
+      this.validateCredentials();
       let path = `/instance/connect/${instanceName}`;
       
       // Add phone number as query parameter if provided
@@ -130,6 +144,7 @@ export class EvolutionApi {
    */
   async fetchInstances(instanceName?: string): Promise<InstanceInfo[]> {
     try {
+      this.validateCredentials();
       let path = '/instance/fetchInstances';
       
       // Add instance name as query parameter if provided
@@ -154,6 +169,7 @@ export class EvolutionApi {
    */
   async createInstance(params: CreateInstanceParams): Promise<CreateInstanceResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.post('/instance/create', params);
       
       return response.data;
@@ -171,6 +187,7 @@ export class EvolutionApi {
    */
   async getConnectionState(instanceName: string): Promise<ConnectionStateResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.get(`/instance/connectionState/${instanceName}`);
       
       return response.data;
@@ -185,6 +202,7 @@ export class EvolutionApi {
 
   public async setWebhook(instanceName: string, config: WebhookConfig): Promise<WebhookResponse> {
     try {
+      this.validateCredentials();
       const response = await fetch(`${this.serverUrl}/webhook/set/${instanceName}`, {
         method: 'POST',
         headers: {
@@ -207,6 +225,7 @@ export class EvolutionApi {
 
   public async getWebhook(instanceName: string): Promise<WebhookResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.get(`/webhook/find/${instanceName}`);
       
       return response.data;
@@ -221,6 +240,7 @@ export class EvolutionApi {
 
   public async setSettings(instanceName: string, settings: InstanceSettings): Promise<SettingsResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.post(`/settings/set/${instanceName}`, settings);
       
       return response.data;
@@ -235,6 +255,7 @@ export class EvolutionApi {
 
   public async getSettings(instanceName: string): Promise<SettingsResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.get(`/settings/find/${instanceName}`);
       
       return response.data;
@@ -249,6 +270,7 @@ export class EvolutionApi {
 
   public async restartInstance(instanceName: string): Promise<RestartResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.put(`/instance/restart/${instanceName}`);
       
       return response.data;
@@ -266,6 +288,7 @@ export class EvolutionApi {
    */
   public async sendPlainText(instanceName: string, params: SendPlainTextParams): Promise<SendTextResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.post(`/message/sendText/${instanceName}`, params);
       
       return response.data;
@@ -283,6 +306,7 @@ export class EvolutionApi {
    */
   public async sendStatus(instanceName: string, params: SendStatusParams): Promise<SendStatusResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.post(`/message/sendStatus/${instanceName}`, params);
       
       return response.data;
@@ -300,6 +324,7 @@ export class EvolutionApi {
    */
   public async sendMedia(instanceName: string, params: SendMediaParams): Promise<SendMediaResponse> {
     try {
+      this.validateCredentials();
       const response = await this.axiosInstance.post(`/message/sendMedia/${instanceName}`, params);
       
       return response.data;
