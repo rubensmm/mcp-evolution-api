@@ -1,0 +1,32 @@
+# Version control
+.git
+.gitignore
+
+# Node.js dependencies
+node_modules
+
+# Build outputs
+dist
+
+# Environment files
+.env*
+!.env.example
+
+# Development tools
+.vscode
+.idea
+
+# Logs
+*.log
+npm-debug.log*
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Misc
+README.md
+LICENSE
+*.md
+.DS_Store 
