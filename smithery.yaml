@@ -1,14 +1,25 @@
-# Smithery.ai configuration
+# smithery.yaml
 startCommand:
   type: stdio
   configSchema:
-    {}
+    type: object
+    properties:
+      EVOLUTION_API_URL:
+        type: string
+        description: "URL of the Evolution API"
+      EVOLUTION_API_KEY:
+        type: string
+        description: "API Key for Evolution API"
+    required: ["EVOLUTION_API_URL", "EVOLUTION_API_KEY"]
   commandFunction: |-
     (config) => ({
-      "command": "bun",
-      "args": [
+      command: "bun",
+      args: [
         "run",
         "dist/main.js"
       ],
-      "env": {}
+      env: {
+        EVOLUTION_API_URL: config.EVOLUTION_API_URL,
+        EVOLUTION_API_KEY: config.EVOLUTION_API_KEY
+      }
     })
