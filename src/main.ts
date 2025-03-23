@@ -8,6 +8,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import {
 	CallToolRequestSchema,
 	ListToolsRequestSchema,
+	type CallToolRequest,
 } from "@modelcontextprotocol/sdk/types.js";
 import { createTools } from "./tools";
 
@@ -42,12 +43,19 @@ const server = new Server(
 const tools = createTools();
 
 // Register tools
-server.setRequestHandler(ListToolsRequestSchema, async () => ({
-	tools: tools.map(({ handler, ...tool }) => tool),
-}));
+server.setRequestHandler(ListToolsRequestSchema, async () => {
+	// Return tools with their schemas but without handlers
+	return {
+		tools: tools.map(({ handler, ...tool }) => ({
+			name: tool.name,
+			description: tool.description,
+			inputSchema: tool.inputSchema,
+		})),
+	};
+});
 
 // Register tool handlers
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
+server.setRequestHandler(CallToolRequestSchema, async (request: CallToolRequest) => {
 	try {
 		const { name, arguments: args } = request.params;
 		const tool = tools.find((t) => t.name === name);
@@ -56,7 +64,27 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 			throw new Error(`Unknown tool: ${name}`);
 		}
 
-		return tool.handler(args);
+		// Execute tool handler and catch any authentication errors
+		try {
+			return await tool.handler(args);
+		} catch (error) {
+			// If this is an authentication error, provide a more user-friendly message
+			if (error instanceof Error && 
+			   (error.message.includes('EVOLUTION_API_KEY') || 
+				error.message.includes('EVOLUTION_API_URL'))) {
+				return {
+					content: [
+						{
+							type: "text",
+							text: "Authentication required: Please provide your Evolution API credentials in the configuration settings.",
+						},
+					],
+					isError: true,
+				};
+			}
+			// Re-throw other errors
+			throw error;
+		}
 	} catch (error) {
 		return {
 			content: [
