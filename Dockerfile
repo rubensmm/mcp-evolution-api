@@ -1,10 +1,10 @@
 # Build Stage
-FROM oven/bun:latest as builder
+FROM oven/bun:latest AS builder
 
 WORKDIR /app
 
 COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
+RUN bun install
 
 COPY . .
 
@@ -23,7 +23,7 @@ COPY --from=builder /app/bun.lockb ./
 # If needed, copy env or config files
 # COPY --from=builder /app/.env ./
 
-RUN bun install --production --frozen-lockfile
+RUN bun install
 
 # Optional: Copy node_modules if Bun has issues
 # COPY --from=builder /app/node_modules ./node_modules
