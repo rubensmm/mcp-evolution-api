@@ -15,14 +15,14 @@
   "module": "main.ts",
   "type": "module",
   "bin": {
-    "mcp-starter": "dist/index.js"
+    "mcp-starter": "dist/main.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "bun build ./src/main.ts --outdir dist --target node && chmod +x dist/main.js",
-    "start": "bun run dist/main.ts",
+    "start": "bun run dist/main.js",
     "dev": "bun --hot src/main.ts",
     "test": "bun test",
     "clean": "rm -rf dist",
