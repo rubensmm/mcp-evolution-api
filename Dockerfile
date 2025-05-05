@@ -1,37 +1,35 @@
-# Build Stage
+# Etapa de build
 FROM oven/bun:latest AS builder
 
 WORKDIR /app
 
 COPY package.json bun.lockb ./
-RUN bun install
+RUN bun install --frozen-lockfile
 
 COPY . .
-
 RUN bun run build
 
-# Production Stage
-FROM oven/bun:latest
+# Etapa de produção
+FROM oven/bun:slim
 
 WORKDIR /app
 
-# Copy built files
+# Copia apenas os arquivos necessários para execução
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/bun.lockb ./
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/bun.lockb ./bun.lockb
 
-# If needed, copy env or config files
-# COPY --from=builder /app/.env ./
+# Reinstala só as dependências de produção
+RUN bun install --production
 
-# Set default environment variables
+# Define variáveis de ambiente padrão (podem ser sobrescritas no docker-compose)
 ENV EVOLUTION_API_URL=https://sua-url-da-evolution-api.com
 ENV EVOLUTION_API_KEY=sua-chave-api-aqui
+ENV NODE_ENV=production
+ENV PORT=3000
 
-RUN bun install
+# Expõe a porta que a aplicação escuta
+EXPOSE ${PORT}
 
-# Optional: Copy node_modules if Bun has issues
-# COPY --from=builder /app/node_modules ./node_modules
-# COPY --from=builder /app/.bun ./.bun
-
-# Mantenha o contêiner em execução
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+# Comando para iniciar a aplicação (ajuste para seu framework)
+CMD ["bun", "run", "start"]
