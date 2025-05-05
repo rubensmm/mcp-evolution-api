@@ -15,7 +15,7 @@
   "module": "main.ts",
   "type": "module",
   "bin": {
-    "mcp-starter": "dist/index.js"
+    "mcp-starter": "dist/main.js"
   },
   "files": [
     "dist"
